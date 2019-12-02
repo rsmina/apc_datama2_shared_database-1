@@ -1,0 +1,1566 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 10.10 (Ubuntu 10.10-0ubuntu0.18.04.1)
+-- Dumped by pg_dump version 10.10
+
+-- Started on 2019-12-02 14:11:48
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'SQL_ASCII';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+--
+-- TOC entry 41 (class 2615 OID 23547)
+-- Name: rrlee; Type: SCHEMA; Schema: -; Owner: datama2mi182
+--
+
+CREATE SCHEMA rrlee;
+
+
+ALTER SCHEMA rrlee OWNER TO datama2mi182;
+
+--
+-- TOC entry 1454 (class 1247 OID 23638)
+-- Name: license_types_enum; Type: TYPE; Schema: rrlee; Owner: datama2mi182
+--
+
+CREATE TYPE rrlee.license_types_enum AS ENUM (
+    'Non-Professional',
+    'Professional'
+);
+
+
+ALTER TYPE rrlee.license_types_enum OWNER TO datama2mi182;
+
+--
+-- TOC entry 1482 (class 1247 OID 23736)
+-- Name: warehouse_types_enum; Type: TYPE; Schema: rrlee; Owner: datama2mi182
+--
+
+CREATE TYPE rrlee.warehouse_types_enum AS ENUM (
+    'Public',
+    'Private',
+    'Rental'
+);
+
+
+ALTER TYPE rrlee.warehouse_types_enum OWNER TO datama2mi182;
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- TOC entry 462 (class 1259 OID 23560)
+-- Name: clients; Type: TABLE; Schema: rrlee; Owner: datama2mi182
+--
+
+CREATE TABLE rrlee.clients (
+    id integer NOT NULL,
+    fname character varying(45) NOT NULL,
+    mname character varying(45) NOT NULL,
+    lname character varying(45) NOT NULL,
+    contact_number character varying(45) NOT NULL,
+    email_address character varying(100) NOT NULL
+);
+
+
+ALTER TABLE rrlee.clients OWNER TO datama2mi182;
+
+--
+-- TOC entry 461 (class 1259 OID 23558)
+-- Name: clients_id_seq; Type: SEQUENCE; Schema: rrlee; Owner: datama2mi182
+--
+
+CREATE SEQUENCE rrlee.clients_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE rrlee.clients_id_seq OWNER TO datama2mi182;
+
+--
+-- TOC entry 4159 (class 0 OID 0)
+-- Dependencies: 461
+-- Name: clients_id_seq; Type: SEQUENCE OWNED BY; Schema: rrlee; Owner: datama2mi182
+--
+
+ALTER SEQUENCE rrlee.clients_id_seq OWNED BY rrlee.clients.id;
+
+
+--
+-- TOC entry 464 (class 1259 OID 23570)
+-- Name: companies; Type: TABLE; Schema: rrlee; Owner: datama2mi182
+--
+
+CREATE TABLE rrlee.companies (
+    id integer NOT NULL,
+    name character varying(100) NOT NULL,
+    found_date date NOT NULL,
+    president_id integer NOT NULL
+);
+
+
+ALTER TABLE rrlee.companies OWNER TO datama2mi182;
+
+--
+-- TOC entry 463 (class 1259 OID 23568)
+-- Name: companies_id_seq; Type: SEQUENCE; Schema: rrlee; Owner: datama2mi182
+--
+
+CREATE SEQUENCE rrlee.companies_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE rrlee.companies_id_seq OWNER TO datama2mi182;
+
+--
+-- TOC entry 4160 (class 0 OID 0)
+-- Dependencies: 463
+-- Name: companies_id_seq; Type: SEQUENCE OWNED BY; Schema: rrlee; Owner: datama2mi182
+--
+
+ALTER SEQUENCE rrlee.companies_id_seq OWNED BY rrlee.companies.id;
+
+
+--
+-- TOC entry 472 (class 1259 OID 23626)
+-- Name: drapers; Type: TABLE; Schema: rrlee; Owner: datama2mi182
+--
+
+CREATE TABLE rrlee.drapers (
+    id integer NOT NULL,
+    employee_id integer NOT NULL,
+    certification_qty integer NOT NULL,
+    years_experience smallint NOT NULL,
+    exhibit_qty integer NOT NULL
+);
+
+
+ALTER TABLE rrlee.drapers OWNER TO datama2mi182;
+
+--
+-- TOC entry 471 (class 1259 OID 23624)
+-- Name: drapers_id_seq; Type: SEQUENCE; Schema: rrlee; Owner: datama2mi182
+--
+
+CREATE SEQUENCE rrlee.drapers_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE rrlee.drapers_id_seq OWNER TO datama2mi182;
+
+--
+-- TOC entry 4161 (class 0 OID 0)
+-- Dependencies: 471
+-- Name: drapers_id_seq; Type: SEQUENCE OWNED BY; Schema: rrlee; Owner: datama2mi182
+--
+
+ALTER SEQUENCE rrlee.drapers_id_seq OWNED BY rrlee.drapers.id;
+
+
+--
+-- TOC entry 476 (class 1259 OID 23655)
+-- Name: drivers; Type: TABLE; Schema: rrlee; Owner: datama2mi182
+--
+
+CREATE TABLE rrlee.drivers (
+    id integer NOT NULL,
+    employee_id integer NOT NULL,
+    license_num character varying(100) NOT NULL,
+    license_expiry date NOT NULL,
+    license_type_id integer NOT NULL
+);
+
+
+ALTER TABLE rrlee.drivers OWNER TO datama2mi182;
+
+--
+-- TOC entry 475 (class 1259 OID 23653)
+-- Name: drivers_id_seq; Type: SEQUENCE; Schema: rrlee; Owner: datama2mi182
+--
+
+CREATE SEQUENCE rrlee.drivers_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE rrlee.drivers_id_seq OWNER TO datama2mi182;
+
+--
+-- TOC entry 4162 (class 0 OID 0)
+-- Dependencies: 475
+-- Name: drivers_id_seq; Type: SEQUENCE OWNED BY; Schema: rrlee; Owner: datama2mi182
+--
+
+ALTER SEQUENCE rrlee.drivers_id_seq OWNED BY rrlee.drivers.id;
+
+
+--
+-- TOC entry 466 (class 1259 OID 23583)
+-- Name: employee_types; Type: TABLE; Schema: rrlee; Owner: datama2mi182
+--
+
+CREATE TABLE rrlee.employee_types (
+    id integer NOT NULL,
+    type character varying(20) NOT NULL
+);
+
+
+ALTER TABLE rrlee.employee_types OWNER TO datama2mi182;
+
+--
+-- TOC entry 465 (class 1259 OID 23581)
+-- Name: employee_types_id_seq; Type: SEQUENCE; Schema: rrlee; Owner: datama2mi182
+--
+
+CREATE SEQUENCE rrlee.employee_types_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE rrlee.employee_types_id_seq OWNER TO datama2mi182;
+
+--
+-- TOC entry 4163 (class 0 OID 0)
+-- Dependencies: 465
+-- Name: employee_types_id_seq; Type: SEQUENCE OWNED BY; Schema: rrlee; Owner: datama2mi182
+--
+
+ALTER SEQUENCE rrlee.employee_types_id_seq OWNED BY rrlee.employee_types.id;
+
+
+--
+-- TOC entry 468 (class 1259 OID 23593)
+-- Name: employees; Type: TABLE; Schema: rrlee; Owner: datama2mi182
+--
+
+CREATE TABLE rrlee.employees (
+    id integer NOT NULL,
+    fname character varying(45) NOT NULL,
+    mname character varying(45) NOT NULL,
+    lname character varying(45) NOT NULL,
+    contact_number character varying(45) NOT NULL,
+    address character varying(255) NOT NULL,
+    company_id integer NOT NULL,
+    employee_type_id integer NOT NULL
+);
+
+
+ALTER TABLE rrlee.employees OWNER TO datama2mi182;
+
+--
+-- TOC entry 467 (class 1259 OID 23591)
+-- Name: employees_id_seq; Type: SEQUENCE; Schema: rrlee; Owner: datama2mi182
+--
+
+CREATE SEQUENCE rrlee.employees_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE rrlee.employees_id_seq OWNER TO datama2mi182;
+
+--
+-- TOC entry 4164 (class 0 OID 0)
+-- Dependencies: 467
+-- Name: employees_id_seq; Type: SEQUENCE OWNED BY; Schema: rrlee; Owner: datama2mi182
+--
+
+ALTER SEQUENCE rrlee.employees_id_seq OWNED BY rrlee.employees.id;
+
+
+--
+-- TOC entry 489 (class 1259 OID 23771)
+-- Name: employees_types; Type: VIEW; Schema: rrlee; Owner: datama2mi182
+--
+
+CREATE VIEW rrlee.employees_types AS
+ SELECT employees.id,
+    concat(employees.fname, ' ', employees.mname, ' ', employees.lname) AS name,
+    employees.contact_number,
+    employees.address,
+    employee_types.type
+   FROM (rrlee.employees
+     JOIN rrlee.employee_types ON ((employees.employee_type_id = employee_types.id)))
+  ORDER BY employees.id;
+
+
+ALTER TABLE rrlee.employees_types OWNER TO datama2mi182;
+
+--
+-- TOC entry 482 (class 1259 OID 23704)
+-- Name: event_types; Type: TABLE; Schema: rrlee; Owner: datama2mi182
+--
+
+CREATE TABLE rrlee.event_types (
+    id integer NOT NULL,
+    type character varying(50) NOT NULL
+);
+
+
+ALTER TABLE rrlee.event_types OWNER TO datama2mi182;
+
+--
+-- TOC entry 481 (class 1259 OID 23702)
+-- Name: event_types_id_seq; Type: SEQUENCE; Schema: rrlee; Owner: datama2mi182
+--
+
+CREATE SEQUENCE rrlee.event_types_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE rrlee.event_types_id_seq OWNER TO datama2mi182;
+
+--
+-- TOC entry 4165 (class 0 OID 0)
+-- Dependencies: 481
+-- Name: event_types_id_seq; Type: SEQUENCE OWNED BY; Schema: rrlee; Owner: datama2mi182
+--
+
+ALTER SEQUENCE rrlee.event_types_id_seq OWNED BY rrlee.event_types.id;
+
+
+--
+-- TOC entry 484 (class 1259 OID 23714)
+-- Name: events; Type: TABLE; Schema: rrlee; Owner: datama2mi182
+--
+
+CREATE TABLE rrlee.events (
+    id integer NOT NULL,
+    company_id integer NOT NULL,
+    event_type_id integer NOT NULL,
+    client_id integer NOT NULL,
+    location character varying(255) NOT NULL,
+    startdate date NOT NULL,
+    enddate date NOT NULL
+);
+
+
+ALTER TABLE rrlee.events OWNER TO datama2mi182;
+
+--
+-- TOC entry 483 (class 1259 OID 23712)
+-- Name: events_id_seq; Type: SEQUENCE; Schema: rrlee; Owner: datama2mi182
+--
+
+CREATE SEQUENCE rrlee.events_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE rrlee.events_id_seq OWNER TO datama2mi182;
+
+--
+-- TOC entry 4166 (class 0 OID 0)
+-- Dependencies: 483
+-- Name: events_id_seq; Type: SEQUENCE OWNED BY; Schema: rrlee; Owner: datama2mi182
+--
+
+ALTER SEQUENCE rrlee.events_id_seq OWNED BY rrlee.events.id;
+
+
+--
+-- TOC entry 470 (class 1259 OID 23613)
+-- Name: florists; Type: TABLE; Schema: rrlee; Owner: datama2mi182
+--
+
+CREATE TABLE rrlee.florists (
+    id integer NOT NULL,
+    employee_id integer NOT NULL,
+    flower_variety_qty integer NOT NULL
+);
+
+
+ALTER TABLE rrlee.florists OWNER TO datama2mi182;
+
+--
+-- TOC entry 469 (class 1259 OID 23611)
+-- Name: florists_id_seq; Type: SEQUENCE; Schema: rrlee; Owner: datama2mi182
+--
+
+CREATE SEQUENCE rrlee.florists_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE rrlee.florists_id_seq OWNER TO datama2mi182;
+
+--
+-- TOC entry 4167 (class 0 OID 0)
+-- Dependencies: 469
+-- Name: florists_id_seq; Type: SEQUENCE OWNED BY; Schema: rrlee; Owner: datama2mi182
+--
+
+ALTER SEQUENCE rrlee.florists_id_seq OWNED BY rrlee.florists.id;
+
+
+--
+-- TOC entry 474 (class 1259 OID 23645)
+-- Name: license_types; Type: TABLE; Schema: rrlee; Owner: datama2mi182
+--
+
+CREATE TABLE rrlee.license_types (
+    id integer NOT NULL,
+    type rrlee.license_types_enum NOT NULL
+);
+
+
+ALTER TABLE rrlee.license_types OWNER TO datama2mi182;
+
+--
+-- TOC entry 473 (class 1259 OID 23643)
+-- Name: license_types_id_seq; Type: SEQUENCE; Schema: rrlee; Owner: datama2mi182
+--
+
+CREATE SEQUENCE rrlee.license_types_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE rrlee.license_types_id_seq OWNER TO datama2mi182;
+
+--
+-- TOC entry 4168 (class 0 OID 0)
+-- Dependencies: 473
+-- Name: license_types_id_seq; Type: SEQUENCE OWNED BY; Schema: rrlee; Owner: datama2mi182
+--
+
+ALTER SEQUENCE rrlee.license_types_id_seq OWNED BY rrlee.license_types.id;
+
+
+--
+-- TOC entry 460 (class 1259 OID 23550)
+-- Name: presidents; Type: TABLE; Schema: rrlee; Owner: datama2mi182
+--
+
+CREATE TABLE rrlee.presidents (
+    id integer NOT NULL,
+    fname character varying(45) NOT NULL,
+    mname character varying(45) NOT NULL,
+    lname character varying(45) NOT NULL,
+    address character varying(255) NOT NULL,
+    contact_number character varying(45),
+    email_address character varying(100)
+);
+
+
+ALTER TABLE rrlee.presidents OWNER TO datama2mi182;
+
+--
+-- TOC entry 459 (class 1259 OID 23548)
+-- Name: presidents_id_seq; Type: SEQUENCE; Schema: rrlee; Owner: datama2mi182
+--
+
+CREATE SEQUENCE rrlee.presidents_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE rrlee.presidents_id_seq OWNER TO datama2mi182;
+
+--
+-- TOC entry 4169 (class 0 OID 0)
+-- Dependencies: 459
+-- Name: presidents_id_seq; Type: SEQUENCE OWNED BY; Schema: rrlee; Owner: datama2mi182
+--
+
+ALTER SEQUENCE rrlee.presidents_id_seq OWNED BY rrlee.presidents.id;
+
+
+--
+-- TOC entry 478 (class 1259 OID 23675)
+-- Name: resource_organizers; Type: TABLE; Schema: rrlee; Owner: datama2mi182
+--
+
+CREATE TABLE rrlee.resource_organizers (
+    id integer NOT NULL,
+    employee_id integer NOT NULL,
+    years_experience smallint NOT NULL,
+    description character varying(500)
+);
+
+
+ALTER TABLE rrlee.resource_organizers OWNER TO datama2mi182;
+
+--
+-- TOC entry 477 (class 1259 OID 23673)
+-- Name: resource_organizers_id_seq; Type: SEQUENCE; Schema: rrlee; Owner: datama2mi182
+--
+
+CREATE SEQUENCE rrlee.resource_organizers_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE rrlee.resource_organizers_id_seq OWNER TO datama2mi182;
+
+--
+-- TOC entry 4170 (class 0 OID 0)
+-- Dependencies: 477
+-- Name: resource_organizers_id_seq; Type: SEQUENCE OWNED BY; Schema: rrlee; Owner: datama2mi182
+--
+
+ALTER SEQUENCE rrlee.resource_organizers_id_seq OWNED BY rrlee.resource_organizers.id;
+
+
+--
+-- TOC entry 480 (class 1259 OID 23688)
+-- Name: styling_assistants; Type: TABLE; Schema: rrlee; Owner: datama2mi182
+--
+
+CREATE TABLE rrlee.styling_assistants (
+    id integer NOT NULL,
+    employee_id integer NOT NULL,
+    certification_qty integer NOT NULL,
+    years_experience smallint NOT NULL,
+    specialization character varying(50)[]
+);
+
+
+ALTER TABLE rrlee.styling_assistants OWNER TO datama2mi182;
+
+--
+-- TOC entry 479 (class 1259 OID 23686)
+-- Name: styling_assistants_id_seq; Type: SEQUENCE; Schema: rrlee; Owner: datama2mi182
+--
+
+CREATE SEQUENCE rrlee.styling_assistants_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE rrlee.styling_assistants_id_seq OWNER TO datama2mi182;
+
+--
+-- TOC entry 4171 (class 0 OID 0)
+-- Dependencies: 479
+-- Name: styling_assistants_id_seq; Type: SEQUENCE OWNED BY; Schema: rrlee; Owner: datama2mi182
+--
+
+ALTER SEQUENCE rrlee.styling_assistants_id_seq OWNED BY rrlee.styling_assistants.id;
+
+
+--
+-- TOC entry 486 (class 1259 OID 23745)
+-- Name: warehouse_types; Type: TABLE; Schema: rrlee; Owner: datama2mi182
+--
+
+CREATE TABLE rrlee.warehouse_types (
+    id integer NOT NULL,
+    type rrlee.warehouse_types_enum NOT NULL
+);
+
+
+ALTER TABLE rrlee.warehouse_types OWNER TO datama2mi182;
+
+--
+-- TOC entry 485 (class 1259 OID 23743)
+-- Name: warehouse_types_id_seq; Type: SEQUENCE; Schema: rrlee; Owner: datama2mi182
+--
+
+CREATE SEQUENCE rrlee.warehouse_types_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE rrlee.warehouse_types_id_seq OWNER TO datama2mi182;
+
+--
+-- TOC entry 4172 (class 0 OID 0)
+-- Dependencies: 485
+-- Name: warehouse_types_id_seq; Type: SEQUENCE OWNED BY; Schema: rrlee; Owner: datama2mi182
+--
+
+ALTER SEQUENCE rrlee.warehouse_types_id_seq OWNED BY rrlee.warehouse_types.id;
+
+
+--
+-- TOC entry 488 (class 1259 OID 23753)
+-- Name: warehouses; Type: TABLE; Schema: rrlee; Owner: datama2mi182
+--
+
+CREATE TABLE rrlee.warehouses (
+    id integer NOT NULL,
+    company_id integer NOT NULL,
+    warehouse_type_id integer NOT NULL,
+    location character varying(255) NOT NULL
+);
+
+
+ALTER TABLE rrlee.warehouses OWNER TO datama2mi182;
+
+--
+-- TOC entry 487 (class 1259 OID 23751)
+-- Name: warehouses_id_seq; Type: SEQUENCE; Schema: rrlee; Owner: datama2mi182
+--
+
+CREATE SEQUENCE rrlee.warehouses_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE rrlee.warehouses_id_seq OWNER TO datama2mi182;
+
+--
+-- TOC entry 4173 (class 0 OID 0)
+-- Dependencies: 487
+-- Name: warehouses_id_seq; Type: SEQUENCE OWNED BY; Schema: rrlee; Owner: datama2mi182
+--
+
+ALTER SEQUENCE rrlee.warehouses_id_seq OWNED BY rrlee.warehouses.id;
+
+
+--
+-- TOC entry 3892 (class 2604 OID 23563)
+-- Name: clients id; Type: DEFAULT; Schema: rrlee; Owner: datama2mi182
+--
+
+ALTER TABLE ONLY rrlee.clients ALTER COLUMN id SET DEFAULT nextval('rrlee.clients_id_seq'::regclass);
+
+
+--
+-- TOC entry 3893 (class 2604 OID 23573)
+-- Name: companies id; Type: DEFAULT; Schema: rrlee; Owner: datama2mi182
+--
+
+ALTER TABLE ONLY rrlee.companies ALTER COLUMN id SET DEFAULT nextval('rrlee.companies_id_seq'::regclass);
+
+
+--
+-- TOC entry 3897 (class 2604 OID 23629)
+-- Name: drapers id; Type: DEFAULT; Schema: rrlee; Owner: datama2mi182
+--
+
+ALTER TABLE ONLY rrlee.drapers ALTER COLUMN id SET DEFAULT nextval('rrlee.drapers_id_seq'::regclass);
+
+
+--
+-- TOC entry 3899 (class 2604 OID 23658)
+-- Name: drivers id; Type: DEFAULT; Schema: rrlee; Owner: datama2mi182
+--
+
+ALTER TABLE ONLY rrlee.drivers ALTER COLUMN id SET DEFAULT nextval('rrlee.drivers_id_seq'::regclass);
+
+
+--
+-- TOC entry 3894 (class 2604 OID 23586)
+-- Name: employee_types id; Type: DEFAULT; Schema: rrlee; Owner: datama2mi182
+--
+
+ALTER TABLE ONLY rrlee.employee_types ALTER COLUMN id SET DEFAULT nextval('rrlee.employee_types_id_seq'::regclass);
+
+
+--
+-- TOC entry 3895 (class 2604 OID 23596)
+-- Name: employees id; Type: DEFAULT; Schema: rrlee; Owner: datama2mi182
+--
+
+ALTER TABLE ONLY rrlee.employees ALTER COLUMN id SET DEFAULT nextval('rrlee.employees_id_seq'::regclass);
+
+
+--
+-- TOC entry 3902 (class 2604 OID 23707)
+-- Name: event_types id; Type: DEFAULT; Schema: rrlee; Owner: datama2mi182
+--
+
+ALTER TABLE ONLY rrlee.event_types ALTER COLUMN id SET DEFAULT nextval('rrlee.event_types_id_seq'::regclass);
+
+
+--
+-- TOC entry 3903 (class 2604 OID 23717)
+-- Name: events id; Type: DEFAULT; Schema: rrlee; Owner: datama2mi182
+--
+
+ALTER TABLE ONLY rrlee.events ALTER COLUMN id SET DEFAULT nextval('rrlee.events_id_seq'::regclass);
+
+
+--
+-- TOC entry 3896 (class 2604 OID 23616)
+-- Name: florists id; Type: DEFAULT; Schema: rrlee; Owner: datama2mi182
+--
+
+ALTER TABLE ONLY rrlee.florists ALTER COLUMN id SET DEFAULT nextval('rrlee.florists_id_seq'::regclass);
+
+
+--
+-- TOC entry 3898 (class 2604 OID 23648)
+-- Name: license_types id; Type: DEFAULT; Schema: rrlee; Owner: datama2mi182
+--
+
+ALTER TABLE ONLY rrlee.license_types ALTER COLUMN id SET DEFAULT nextval('rrlee.license_types_id_seq'::regclass);
+
+
+--
+-- TOC entry 3891 (class 2604 OID 23553)
+-- Name: presidents id; Type: DEFAULT; Schema: rrlee; Owner: datama2mi182
+--
+
+ALTER TABLE ONLY rrlee.presidents ALTER COLUMN id SET DEFAULT nextval('rrlee.presidents_id_seq'::regclass);
+
+
+--
+-- TOC entry 3900 (class 2604 OID 23678)
+-- Name: resource_organizers id; Type: DEFAULT; Schema: rrlee; Owner: datama2mi182
+--
+
+ALTER TABLE ONLY rrlee.resource_organizers ALTER COLUMN id SET DEFAULT nextval('rrlee.resource_organizers_id_seq'::regclass);
+
+
+--
+-- TOC entry 3901 (class 2604 OID 23691)
+-- Name: styling_assistants id; Type: DEFAULT; Schema: rrlee; Owner: datama2mi182
+--
+
+ALTER TABLE ONLY rrlee.styling_assistants ALTER COLUMN id SET DEFAULT nextval('rrlee.styling_assistants_id_seq'::regclass);
+
+
+--
+-- TOC entry 3904 (class 2604 OID 23748)
+-- Name: warehouse_types id; Type: DEFAULT; Schema: rrlee; Owner: datama2mi182
+--
+
+ALTER TABLE ONLY rrlee.warehouse_types ALTER COLUMN id SET DEFAULT nextval('rrlee.warehouse_types_id_seq'::regclass);
+
+
+--
+-- TOC entry 3905 (class 2604 OID 23756)
+-- Name: warehouses id; Type: DEFAULT; Schema: rrlee; Owner: datama2mi182
+--
+
+ALTER TABLE ONLY rrlee.warehouses ALTER COLUMN id SET DEFAULT nextval('rrlee.warehouses_id_seq'::regclass);
+
+
+--
+-- TOC entry 4127 (class 0 OID 23560)
+-- Dependencies: 462
+-- Data for Name: clients; Type: TABLE DATA; Schema: rrlee; Owner: datama2mi182
+--
+
+COPY rrlee.clients (id, fname, mname, lname, contact_number, email_address) FROM stdin;
+1	Jason	G	Todd	+639283747373	jgtodd@gmail.com
+2	Angelica	Z	Daryl	+639283647389	azdaryl@gmail.com
+3	Nadine	H	Paula	+639238564738	nhpaula@gmail.com
+4	Jeric Paul	N	James	+639283647398	jnjames@gmail.com
+5	Reynold	J	Jaime	+639378594851	rjjaime@gmail.com
+\.
+
+
+--
+-- TOC entry 4129 (class 0 OID 23570)
+-- Dependencies: 464
+-- Data for Name: companies; Type: TABLE DATA; Schema: rrlee; Owner: datama2mi182
+--
+
+COPY rrlee.companies (id, name, found_date, president_id) FROM stdin;
+1	Jo Claravall	1997-12-01	1
+2	De Guzman Enterprise	2012-11-04	2
+3	Wedding Org	2014-01-03	1
+4	Organizers Incorporated	2019-11-01	2
+5	PhilWed	2010-02-13	1
+\.
+
+
+--
+-- TOC entry 4137 (class 0 OID 23626)
+-- Dependencies: 472
+-- Data for Name: drapers; Type: TABLE DATA; Schema: rrlee; Owner: datama2mi182
+--
+
+COPY rrlee.drapers (id, employee_id, certification_qty, years_experience, exhibit_qty) FROM stdin;
+1	6	2	5	10
+2	7	4	2	7
+3	8	7	3	6
+4	9	8	1	3
+5	10	2	5	2
+6	31	4	3	8
+7	32	3	4	5
+8	33	1	7	9
+9	34	8	8	2
+10	35	9	2	1
+\.
+
+
+--
+-- TOC entry 4141 (class 0 OID 23655)
+-- Dependencies: 476
+-- Data for Name: drivers; Type: TABLE DATA; Schema: rrlee; Owner: datama2mi182
+--
+
+COPY rrlee.drivers (id, employee_id, license_num, license_expiry, license_type_id) FROM stdin;
+1	1	N27-11-025178	2025-01-01	1
+2	2	N21-12-025179	2026-02-11	2
+3	3	N23-13-025180	2027-03-21	2
+4	4	N25-14-025181	2025-04-01	1
+5	5	N28-15-025182	2026-05-11	2
+6	26	N20-16-025183	2027-06-21	1
+7	27	N22-17-025184	2025-07-01	2
+8	28	N24-18-025185	2026-08-11	2
+9	29	N25-19-025186	2027-09-21	1
+10	30	N26-19-025187	2025-10-01	2
+\.
+
+
+--
+-- TOC entry 4131 (class 0 OID 23583)
+-- Dependencies: 466
+-- Data for Name: employee_types; Type: TABLE DATA; Schema: rrlee; Owner: datama2mi182
+--
+
+COPY rrlee.employee_types (id, type) FROM stdin;
+1	drivers
+2	drapers
+3	florists
+4	styling_assistants
+5	resource_organizers
+\.
+
+
+--
+-- TOC entry 4133 (class 0 OID 23593)
+-- Dependencies: 468
+-- Data for Name: employees; Type: TABLE DATA; Schema: rrlee; Owner: datama2mi182
+--
+
+COPY rrlee.employees (id, fname, mname, lname, contact_number, address, company_id, employee_type_id) FROM stdin;
+1	Maryl	Rachel	Prevost	+865223049712	8123 Sutherland Circle	1	1
+2	Olivia	Gretchen	Stringfellow	+307801030207	23281 School Pass	2	1
+3	Juline	Aeriell	Kleuer	+5042717673345	0 Granby Terrace	3	1
+4	Freemon	Goraud	Reggiani	+668335046538	2717 Westridge Pass	4	1
+5	Ag	Parsifal	Sinnatt	+3897182028606	69 Gateway Terrace	5	1
+6	Wilhelmine	Holly	Klaaassen	+869448345829	6632 Harbort Street	1	2
+7	Dredi	Dalia	Gallaway	+628139614410	81530 Nelson Trail	2	2
+8	Elisa	Kym	Tichelaar	+984407100014	0529 Shopko Drive	3	2
+9	Josepha	Liva	Martlew	+3898753240767	506 Armistice Lane	4	2
+10	Davita	Dick	Resdale	+864064741484	375 Pond Drive	5	2
+11	Karisa	David	Negus	+3511152209772	617 Bunting Terrace	1	3
+12	Lilyan	Mahala	Cust	+861365947643	303 Bartelt Avenue	2	3
+13	Gael	Sumner	Braams	+868395951632	2 Burning Wood Park	3	3
+14	Helena	Mitzi	Gunney	+363304615405	6938 Main Point	4	3
+15	Loria	Sammy	Burnyeat	+525436457274	8 Doe Crossing Drive	5	3
+16	Marita	Angel	Klisch	+626516557479	8 Shasta Junction	1	4
+17	Mohandis	Karla	Aulds	+2345473969357	3 Barnett Parkway	2	4
+18	Dane	Marlyn	Raffan	+624362085513	672 Wayridge Alley	3	4
+19	Carina	Charley	McGoogan	+538401186477	9 Summerview Avenue	4	4
+20	Ethelin	Arliene	Bestwerthick	+467552198029	9 Anhalt Park	5	4
+21	Bibbie	Gabriell	McKag	+305831460781	36 Norway Maple Road	1	5
+22	Lorelle	Koral	Boyen	+869144207653	86864 Hovde Terrace	2	5
+23	Elisabet	Stirling	Cadge	+482742626598	6021 Kipling Drive	3	5
+24	Melli	Claudelle	Cyphus	+816426023425	169 Loftsgordon Circle	4	5
+25	Smith	Alvie	Deason	+867803973829	86191 1st Plaza	5	5
+26	Huntlee	Odella	Dunleavy	+3513659088796	2 Upham Junction	1	1
+27	Roslyn	Dyane	Woodcroft	+4203543349064	1253 Burrows Road	2	1
+28	Beverie	Shae	Croisier	+627126732315	615 Farwell Alley	3	1
+29	Jarrod	Bryanty	Powley	+639002654841	0 Raven Lane	4	1
+30	Bobbye	Pammi	Rubi	+868607172134	64038 East Court	5	1
+31	Cynthea	Queenie	Pownall	+869461109005	18175 8th Parkway	1	2
+32	Sonny	Janna	Weed	+473629738724	4245 Grim Terrace	2	2
+33	Adele	Codi	Palk	+624804241006	1 Mosinee Parkway	3	2
+34	Meredeth	Velvet	Gentile	+667291073156	3 Daystar Park	4	2
+35	Mary	Redford	Karpov	+547868132305	08450 Banding Junction	5	2
+36	Reinaldo	Lori	Catterson	+483892719298	917 Kensington Alley	1	3
+37	Shanie	Gerri	McLeman	+555261852788	03809 Victoria Alley	2	3
+38	Andrey	Gwenneth	Kapelhof	+79738450925	3382 Truax Avenue	3	3
+39	Maris	Adrian	Stormont	+73695845938	8187 Merry Court	4	3
+40	Etta	Mohandas	Eblein	+78872985666	1 Harper Center	5	3
+41	Darwin	Corrine	Westraw	+629215359944	7429 Pepper Wood Park	1	4
+42	Guendolen	Suzanna	Harnell	+639236994194	1 Redwing Hill	2	4
+43	Cassey	Albrecht	Verman	+9949883383084	895 Jay Terrace	3	4
+44	Selestina	Chic	Lambird	+624118810724	075 Dixon Park	4	4
+45	Margaretha	Sindee	Treffrey	+639624893781	5 6th Crossing	5	4
+46	Harriet	Sherye	Ledster	+9672084062884	4984 Maywood Lane	1	5
+47	Aili	Kerrill	Theobold	+9616905696532	46148 Monica Avenue	2	5
+48	Roxy	Emma	Cyseley	+621422591912	8 Lotheville Park	3	5
+49	Noam	Enrica	Hyatt	+3519062736618	184 Golf View Drive	4	5
+50	Clerkclaude	Logan	Antusch	+866938261194	02 Glendale Lane	5	5
+\.
+
+
+--
+-- TOC entry 4147 (class 0 OID 23704)
+-- Dependencies: 482
+-- Data for Name: event_types; Type: TABLE DATA; Schema: rrlee; Owner: datama2mi182
+--
+
+COPY rrlee.event_types (id, type) FROM stdin;
+1	Wedding
+2	Birthday
+3	Christening
+4	Company
+5	Private
+\.
+
+
+--
+-- TOC entry 4149 (class 0 OID 23714)
+-- Dependencies: 484
+-- Data for Name: events; Type: TABLE DATA; Schema: rrlee; Owner: datama2mi182
+--
+
+COPY rrlee.events (id, company_id, event_type_id, client_id, location, startdate, enddate) FROM stdin;
+1	1	1	1	493 Milwaukee Parkway, Nishor	2019-10-20	2019-10-20
+2	2	2	2	52 Dexter Place, Corticos	2019-10-23	2019-10-24
+3	4	5	3	51811 Drewry Court, Laixi	2019-11-11	2019-11-11
+4	1	3	4	7 Jackson Trail, Cervantes	2019-12-23	2019-12-23
+5	3	4	5	55 Harper Drive, Dongdong	2019-12-30	2019-12-30
+\.
+
+
+--
+-- TOC entry 4135 (class 0 OID 23613)
+-- Dependencies: 470
+-- Data for Name: florists; Type: TABLE DATA; Schema: rrlee; Owner: datama2mi182
+--
+
+COPY rrlee.florists (id, employee_id, flower_variety_qty) FROM stdin;
+1	11	30
+2	12	40
+3	13	45
+4	14	25
+5	15	35
+6	36	60
+7	37	40
+8	38	45
+9	39	60
+10	40	50
+\.
+
+
+--
+-- TOC entry 4139 (class 0 OID 23645)
+-- Dependencies: 474
+-- Data for Name: license_types; Type: TABLE DATA; Schema: rrlee; Owner: datama2mi182
+--
+
+COPY rrlee.license_types (id, type) FROM stdin;
+1	Non-Professional
+2	Professional
+\.
+
+
+--
+-- TOC entry 4125 (class 0 OID 23550)
+-- Dependencies: 460
+-- Data for Name: presidents; Type: TABLE DATA; Schema: rrlee; Owner: datama2mi182
+--
+
+COPY rrlee.presidents (id, fname, mname, lname, address, contact_number, email_address) FROM stdin;
+1	Jo	M	Claravall	15 Lancewood Greenwods Village, Pasig	+639125658891	jo.claravall@gmail.com
+2	David	C	De Guzman	Bangkal, Taguig	+639665923590	dcdeguzman@student.apc.edu.ph
+\.
+
+
+--
+-- TOC entry 4143 (class 0 OID 23675)
+-- Dependencies: 478
+-- Data for Name: resource_organizers; Type: TABLE DATA; Schema: rrlee; Owner: datama2mi182
+--
+
+COPY rrlee.resource_organizers (id, employee_id, years_experience, description) FROM stdin;
+1	21	5	Self-motivated
+2	22	3	Time management
+3	23	4	Interpersonal skills
+4	24	2	Networking
+5	25	5	Focused
+6	46	6	Networking
+7	47	9	Time management
+8	48	2	Interpersonal skills
+9	49	3	Focused
+10	50	5	Self-motivated
+\.
+
+
+--
+-- TOC entry 4145 (class 0 OID 23688)
+-- Dependencies: 480
+-- Data for Name: styling_assistants; Type: TABLE DATA; Schema: rrlee; Owner: datama2mi182
+--
+
+COPY rrlee.styling_assistants (id, employee_id, certification_qty, years_experience, specialization) FROM stdin;
+1	16	5	8	{Ikebana,English}
+2	17	2	3	{English,Modern,Contemporary}
+3	18	4	5	{Modern}
+4	19	6	7	{Contemporary,Modern}
+5	20	8	9	{Ikebana,English}
+6	41	2	4	{Modern,Contemporary,Ikebana,English}
+7	42	1	4	{Contemporary}
+8	43	7	3	{English}
+9	44	9	5	{Modern,English}
+10	45	2	2	{Ikebana,Contemporary}
+\.
+
+
+--
+-- TOC entry 4151 (class 0 OID 23745)
+-- Dependencies: 486
+-- Data for Name: warehouse_types; Type: TABLE DATA; Schema: rrlee; Owner: datama2mi182
+--
+
+COPY rrlee.warehouse_types (id, type) FROM stdin;
+1	Public
+2	Private
+3	Rental
+\.
+
+
+--
+-- TOC entry 4153 (class 0 OID 23753)
+-- Dependencies: 488
+-- Data for Name: warehouses; Type: TABLE DATA; Schema: rrlee; Owner: datama2mi182
+--
+
+COPY rrlee.warehouses (id, company_id, warehouse_type_id, location) FROM stdin;
+1	1	1	6 Bay Alley, Chengbei
+2	2	3	41133 Lukken Pass, Fayzabad
+3	3	2	92 Independence Alley, El Adelanto
+4	4	2	275 Shopko Junction, Fahmah
+5	5	1	9296 Becker Trail, Taguisa
+\.
+
+
+--
+-- TOC entry 4174 (class 0 OID 0)
+-- Dependencies: 461
+-- Name: clients_id_seq; Type: SEQUENCE SET; Schema: rrlee; Owner: datama2mi182
+--
+
+SELECT pg_catalog.setval('rrlee.clients_id_seq', 5, true);
+
+
+--
+-- TOC entry 4175 (class 0 OID 0)
+-- Dependencies: 463
+-- Name: companies_id_seq; Type: SEQUENCE SET; Schema: rrlee; Owner: datama2mi182
+--
+
+SELECT pg_catalog.setval('rrlee.companies_id_seq', 5, true);
+
+
+--
+-- TOC entry 4176 (class 0 OID 0)
+-- Dependencies: 471
+-- Name: drapers_id_seq; Type: SEQUENCE SET; Schema: rrlee; Owner: datama2mi182
+--
+
+SELECT pg_catalog.setval('rrlee.drapers_id_seq', 10, true);
+
+
+--
+-- TOC entry 4177 (class 0 OID 0)
+-- Dependencies: 475
+-- Name: drivers_id_seq; Type: SEQUENCE SET; Schema: rrlee; Owner: datama2mi182
+--
+
+SELECT pg_catalog.setval('rrlee.drivers_id_seq', 10, true);
+
+
+--
+-- TOC entry 4178 (class 0 OID 0)
+-- Dependencies: 465
+-- Name: employee_types_id_seq; Type: SEQUENCE SET; Schema: rrlee; Owner: datama2mi182
+--
+
+SELECT pg_catalog.setval('rrlee.employee_types_id_seq', 5, true);
+
+
+--
+-- TOC entry 4179 (class 0 OID 0)
+-- Dependencies: 467
+-- Name: employees_id_seq; Type: SEQUENCE SET; Schema: rrlee; Owner: datama2mi182
+--
+
+SELECT pg_catalog.setval('rrlee.employees_id_seq', 50, true);
+
+
+--
+-- TOC entry 4180 (class 0 OID 0)
+-- Dependencies: 481
+-- Name: event_types_id_seq; Type: SEQUENCE SET; Schema: rrlee; Owner: datama2mi182
+--
+
+SELECT pg_catalog.setval('rrlee.event_types_id_seq', 5, true);
+
+
+--
+-- TOC entry 4181 (class 0 OID 0)
+-- Dependencies: 483
+-- Name: events_id_seq; Type: SEQUENCE SET; Schema: rrlee; Owner: datama2mi182
+--
+
+SELECT pg_catalog.setval('rrlee.events_id_seq', 5, true);
+
+
+--
+-- TOC entry 4182 (class 0 OID 0)
+-- Dependencies: 469
+-- Name: florists_id_seq; Type: SEQUENCE SET; Schema: rrlee; Owner: datama2mi182
+--
+
+SELECT pg_catalog.setval('rrlee.florists_id_seq', 10, true);
+
+
+--
+-- TOC entry 4183 (class 0 OID 0)
+-- Dependencies: 473
+-- Name: license_types_id_seq; Type: SEQUENCE SET; Schema: rrlee; Owner: datama2mi182
+--
+
+SELECT pg_catalog.setval('rrlee.license_types_id_seq', 2, true);
+
+
+--
+-- TOC entry 4184 (class 0 OID 0)
+-- Dependencies: 459
+-- Name: presidents_id_seq; Type: SEQUENCE SET; Schema: rrlee; Owner: datama2mi182
+--
+
+SELECT pg_catalog.setval('rrlee.presidents_id_seq', 2, true);
+
+
+--
+-- TOC entry 4185 (class 0 OID 0)
+-- Dependencies: 477
+-- Name: resource_organizers_id_seq; Type: SEQUENCE SET; Schema: rrlee; Owner: datama2mi182
+--
+
+SELECT pg_catalog.setval('rrlee.resource_organizers_id_seq', 10, true);
+
+
+--
+-- TOC entry 4186 (class 0 OID 0)
+-- Dependencies: 479
+-- Name: styling_assistants_id_seq; Type: SEQUENCE SET; Schema: rrlee; Owner: datama2mi182
+--
+
+SELECT pg_catalog.setval('rrlee.styling_assistants_id_seq', 10, true);
+
+
+--
+-- TOC entry 4187 (class 0 OID 0)
+-- Dependencies: 485
+-- Name: warehouse_types_id_seq; Type: SEQUENCE SET; Schema: rrlee; Owner: datama2mi182
+--
+
+SELECT pg_catalog.setval('rrlee.warehouse_types_id_seq', 3, true);
+
+
+--
+-- TOC entry 4188 (class 0 OID 0)
+-- Dependencies: 487
+-- Name: warehouses_id_seq; Type: SEQUENCE SET; Schema: rrlee; Owner: datama2mi182
+--
+
+SELECT pg_catalog.setval('rrlee.warehouses_id_seq', 5, true);
+
+
+--
+-- TOC entry 3911 (class 2606 OID 23567)
+-- Name: clients clients_contact_number_email_address_key; Type: CONSTRAINT; Schema: rrlee; Owner: datama2mi182
+--
+
+ALTER TABLE ONLY rrlee.clients
+    ADD CONSTRAINT clients_contact_number_email_address_key UNIQUE (contact_number, email_address);
+
+
+--
+-- TOC entry 3913 (class 2606 OID 23565)
+-- Name: clients clients_pk; Type: CONSTRAINT; Schema: rrlee; Owner: datama2mi182
+--
+
+ALTER TABLE ONLY rrlee.clients
+    ADD CONSTRAINT clients_pk PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3915 (class 2606 OID 23575)
+-- Name: companies companies_pk; Type: CONSTRAINT; Schema: rrlee; Owner: datama2mi182
+--
+
+ALTER TABLE ONLY rrlee.companies
+    ADD CONSTRAINT companies_pk PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3927 (class 2606 OID 23631)
+-- Name: drapers drapers_pk; Type: CONSTRAINT; Schema: rrlee; Owner: datama2mi182
+--
+
+ALTER TABLE ONLY rrlee.drapers
+    ADD CONSTRAINT drapers_pk PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3933 (class 2606 OID 23662)
+-- Name: drivers drivers_license_num_key; Type: CONSTRAINT; Schema: rrlee; Owner: datama2mi182
+--
+
+ALTER TABLE ONLY rrlee.drivers
+    ADD CONSTRAINT drivers_license_num_key UNIQUE (license_num);
+
+
+--
+-- TOC entry 3935 (class 2606 OID 23660)
+-- Name: drivers drivers_pk; Type: CONSTRAINT; Schema: rrlee; Owner: datama2mi182
+--
+
+ALTER TABLE ONLY rrlee.drivers
+    ADD CONSTRAINT drivers_pk PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3917 (class 2606 OID 23588)
+-- Name: employee_types employee_types_pk; Type: CONSTRAINT; Schema: rrlee; Owner: datama2mi182
+--
+
+ALTER TABLE ONLY rrlee.employee_types
+    ADD CONSTRAINT employee_types_pk PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3919 (class 2606 OID 23590)
+-- Name: employee_types employee_types_type_key; Type: CONSTRAINT; Schema: rrlee; Owner: datama2mi182
+--
+
+ALTER TABLE ONLY rrlee.employee_types
+    ADD CONSTRAINT employee_types_type_key UNIQUE (type);
+
+
+--
+-- TOC entry 3921 (class 2606 OID 23600)
+-- Name: employees employees_contact_number_key; Type: CONSTRAINT; Schema: rrlee; Owner: datama2mi182
+--
+
+ALTER TABLE ONLY rrlee.employees
+    ADD CONSTRAINT employees_contact_number_key UNIQUE (contact_number);
+
+
+--
+-- TOC entry 3923 (class 2606 OID 23598)
+-- Name: employees employees_pk; Type: CONSTRAINT; Schema: rrlee; Owner: datama2mi182
+--
+
+ALTER TABLE ONLY rrlee.employees
+    ADD CONSTRAINT employees_pk PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3941 (class 2606 OID 23709)
+-- Name: event_types event_types_pk; Type: CONSTRAINT; Schema: rrlee; Owner: datama2mi182
+--
+
+ALTER TABLE ONLY rrlee.event_types
+    ADD CONSTRAINT event_types_pk PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3943 (class 2606 OID 23711)
+-- Name: event_types event_types_type_key; Type: CONSTRAINT; Schema: rrlee; Owner: datama2mi182
+--
+
+ALTER TABLE ONLY rrlee.event_types
+    ADD CONSTRAINT event_types_type_key UNIQUE (type);
+
+
+--
+-- TOC entry 3945 (class 2606 OID 23719)
+-- Name: events events_pk; Type: CONSTRAINT; Schema: rrlee; Owner: datama2mi182
+--
+
+ALTER TABLE ONLY rrlee.events
+    ADD CONSTRAINT events_pk PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3925 (class 2606 OID 23618)
+-- Name: florists florists_pk; Type: CONSTRAINT; Schema: rrlee; Owner: datama2mi182
+--
+
+ALTER TABLE ONLY rrlee.florists
+    ADD CONSTRAINT florists_pk PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3929 (class 2606 OID 23650)
+-- Name: license_types license_types_pk; Type: CONSTRAINT; Schema: rrlee; Owner: datama2mi182
+--
+
+ALTER TABLE ONLY rrlee.license_types
+    ADD CONSTRAINT license_types_pk PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3931 (class 2606 OID 23652)
+-- Name: license_types license_types_type_key; Type: CONSTRAINT; Schema: rrlee; Owner: datama2mi182
+--
+
+ALTER TABLE ONLY rrlee.license_types
+    ADD CONSTRAINT license_types_type_key UNIQUE (type);
+
+
+--
+-- TOC entry 3907 (class 2606 OID 23557)
+-- Name: presidents presidents_contact_number_email_address_key; Type: CONSTRAINT; Schema: rrlee; Owner: datama2mi182
+--
+
+ALTER TABLE ONLY rrlee.presidents
+    ADD CONSTRAINT presidents_contact_number_email_address_key UNIQUE (contact_number, email_address);
+
+
+--
+-- TOC entry 3909 (class 2606 OID 23555)
+-- Name: presidents presidents_pk; Type: CONSTRAINT; Schema: rrlee; Owner: datama2mi182
+--
+
+ALTER TABLE ONLY rrlee.presidents
+    ADD CONSTRAINT presidents_pk PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3937 (class 2606 OID 23680)
+-- Name: resource_organizers resource_organizers_pk; Type: CONSTRAINT; Schema: rrlee; Owner: datama2mi182
+--
+
+ALTER TABLE ONLY rrlee.resource_organizers
+    ADD CONSTRAINT resource_organizers_pk PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3939 (class 2606 OID 23696)
+-- Name: styling_assistants styling_assistants_pk; Type: CONSTRAINT; Schema: rrlee; Owner: datama2mi182
+--
+
+ALTER TABLE ONLY rrlee.styling_assistants
+    ADD CONSTRAINT styling_assistants_pk PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3947 (class 2606 OID 23750)
+-- Name: warehouse_types warehouse_types_pk; Type: CONSTRAINT; Schema: rrlee; Owner: datama2mi182
+--
+
+ALTER TABLE ONLY rrlee.warehouse_types
+    ADD CONSTRAINT warehouse_types_pk PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3949 (class 2606 OID 23760)
+-- Name: warehouses warehouses_location_key; Type: CONSTRAINT; Schema: rrlee; Owner: datama2mi182
+--
+
+ALTER TABLE ONLY rrlee.warehouses
+    ADD CONSTRAINT warehouses_location_key UNIQUE (location);
+
+
+--
+-- TOC entry 3951 (class 2606 OID 23758)
+-- Name: warehouses warehouses_pk; Type: CONSTRAINT; Schema: rrlee; Owner: datama2mi182
+--
+
+ALTER TABLE ONLY rrlee.warehouses
+    ADD CONSTRAINT warehouses_pk PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3952 (class 2606 OID 23576)
+-- Name: companies companies_president_id_fkey; Type: FK CONSTRAINT; Schema: rrlee; Owner: datama2mi182
+--
+
+ALTER TABLE ONLY rrlee.companies
+    ADD CONSTRAINT companies_president_id_fkey FOREIGN KEY (president_id) REFERENCES rrlee.presidents(id);
+
+
+--
+-- TOC entry 3956 (class 2606 OID 23632)
+-- Name: drapers drapers_employee_id_fkey; Type: FK CONSTRAINT; Schema: rrlee; Owner: datama2mi182
+--
+
+ALTER TABLE ONLY rrlee.drapers
+    ADD CONSTRAINT drapers_employee_id_fkey FOREIGN KEY (employee_id) REFERENCES rrlee.employees(id);
+
+
+--
+-- TOC entry 3957 (class 2606 OID 23663)
+-- Name: drivers drivers_employee_id_fkey; Type: FK CONSTRAINT; Schema: rrlee; Owner: datama2mi182
+--
+
+ALTER TABLE ONLY rrlee.drivers
+    ADD CONSTRAINT drivers_employee_id_fkey FOREIGN KEY (employee_id) REFERENCES rrlee.employees(id);
+
+
+--
+-- TOC entry 3958 (class 2606 OID 23668)
+-- Name: drivers drivers_license_type_id_fkey; Type: FK CONSTRAINT; Schema: rrlee; Owner: datama2mi182
+--
+
+ALTER TABLE ONLY rrlee.drivers
+    ADD CONSTRAINT drivers_license_type_id_fkey FOREIGN KEY (license_type_id) REFERENCES rrlee.license_types(id);
+
+
+--
+-- TOC entry 3953 (class 2606 OID 23601)
+-- Name: employees employees_company_id_fkey; Type: FK CONSTRAINT; Schema: rrlee; Owner: datama2mi182
+--
+
+ALTER TABLE ONLY rrlee.employees
+    ADD CONSTRAINT employees_company_id_fkey FOREIGN KEY (company_id) REFERENCES rrlee.companies(id);
+
+
+--
+-- TOC entry 3954 (class 2606 OID 23606)
+-- Name: employees employees_employee_type_id_fkey; Type: FK CONSTRAINT; Schema: rrlee; Owner: datama2mi182
+--
+
+ALTER TABLE ONLY rrlee.employees
+    ADD CONSTRAINT employees_employee_type_id_fkey FOREIGN KEY (employee_type_id) REFERENCES rrlee.employee_types(id);
+
+
+--
+-- TOC entry 3963 (class 2606 OID 23730)
+-- Name: events events_client_id_fkey; Type: FK CONSTRAINT; Schema: rrlee; Owner: datama2mi182
+--
+
+ALTER TABLE ONLY rrlee.events
+    ADD CONSTRAINT events_client_id_fkey FOREIGN KEY (client_id) REFERENCES rrlee.clients(id);
+
+
+--
+-- TOC entry 3961 (class 2606 OID 23720)
+-- Name: events events_company_id_fkey; Type: FK CONSTRAINT; Schema: rrlee; Owner: datama2mi182
+--
+
+ALTER TABLE ONLY rrlee.events
+    ADD CONSTRAINT events_company_id_fkey FOREIGN KEY (company_id) REFERENCES rrlee.companies(id);
+
+
+--
+-- TOC entry 3962 (class 2606 OID 23725)
+-- Name: events events_event_type_id_fkey; Type: FK CONSTRAINT; Schema: rrlee; Owner: datama2mi182
+--
+
+ALTER TABLE ONLY rrlee.events
+    ADD CONSTRAINT events_event_type_id_fkey FOREIGN KEY (event_type_id) REFERENCES rrlee.event_types(id);
+
+
+--
+-- TOC entry 3955 (class 2606 OID 23619)
+-- Name: florists florists_employee_id_fkey; Type: FK CONSTRAINT; Schema: rrlee; Owner: datama2mi182
+--
+
+ALTER TABLE ONLY rrlee.florists
+    ADD CONSTRAINT florists_employee_id_fkey FOREIGN KEY (employee_id) REFERENCES rrlee.employees(id);
+
+
+--
+-- TOC entry 3959 (class 2606 OID 23681)
+-- Name: resource_organizers resource_organizers_employee_id_fkey; Type: FK CONSTRAINT; Schema: rrlee; Owner: datama2mi182
+--
+
+ALTER TABLE ONLY rrlee.resource_organizers
+    ADD CONSTRAINT resource_organizers_employee_id_fkey FOREIGN KEY (employee_id) REFERENCES rrlee.employees(id);
+
+
+--
+-- TOC entry 3960 (class 2606 OID 23697)
+-- Name: styling_assistants styling_assistants_employee_id_fkey; Type: FK CONSTRAINT; Schema: rrlee; Owner: datama2mi182
+--
+
+ALTER TABLE ONLY rrlee.styling_assistants
+    ADD CONSTRAINT styling_assistants_employee_id_fkey FOREIGN KEY (employee_id) REFERENCES rrlee.employees(id);
+
+
+--
+-- TOC entry 3964 (class 2606 OID 23761)
+-- Name: warehouses warehouses_company_id_fkey; Type: FK CONSTRAINT; Schema: rrlee; Owner: datama2mi182
+--
+
+ALTER TABLE ONLY rrlee.warehouses
+    ADD CONSTRAINT warehouses_company_id_fkey FOREIGN KEY (company_id) REFERENCES rrlee.companies(id);
+
+
+--
+-- TOC entry 3965 (class 2606 OID 23766)
+-- Name: warehouses warehouses_warehouse_type_id_fkey; Type: FK CONSTRAINT; Schema: rrlee; Owner: datama2mi182
+--
+
+ALTER TABLE ONLY rrlee.warehouses
+    ADD CONSTRAINT warehouses_warehouse_type_id_fkey FOREIGN KEY (warehouse_type_id) REFERENCES rrlee.warehouse_types(id);
+
+
+-- Completed on 2019-12-02 14:11:50
+
+--
+-- PostgreSQL database dump complete
+--
+
