@@ -7,6 +7,7 @@ Database Management 2
 - [View Result Table](#view-result-table)
 - [Employees](#employees)
 - [Employee Types](#employee_types)
+- [Entity Relationship Diagram](#er-diagram)
   
 <h1 id="create-view-query">Create View Query</h1>
 <table>
@@ -43,3 +44,6 @@ ORDER BY rrlee.employees.id;
 
 <h1 id="employee_types">Employee Types</h1>
 <img src="screenshots/employee-types-table.png" alt="Employee Types Table" />
+
+<h1 id="er-diagram">Entity Relationship Diagram</h1>
+<img src="screenshots/er-diagram.png" alt="ER Diagram" />
