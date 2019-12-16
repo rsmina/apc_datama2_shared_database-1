@@ -3,7 +3,7 @@
 --
 
 --
--- unit numbers
+-- unit_numbers
 --
 CREATE TABLE MI182_RRLEE.unit_numbers (
     id NUMBER,
@@ -28,7 +28,7 @@ BEGIN
 END;
 
 --
--- house numbers
+-- house_numbers
 --
 CREATE TABLE MI182_RRLEE.house_numbers (
     id NUMBER,
