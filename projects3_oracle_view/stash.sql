@@ -304,6 +304,7 @@ BEGIN
 	FROM dual;
 END;
 
+-- 
 --
 -- employee_types
 --
@@ -311,7 +312,7 @@ CREATE TABLE MI182_RRLEE.employee_types (
     id NUMBER,
     employee_type VARCHAR(20) NOT NULL,
     PRIMARY KEY (id),
-    UNIQUE (employee_type)
+    UNIQUE (employee_types)
 );
 
 CREATE SEQUENCE MI182_RRLEE.employee_types_sequence
@@ -510,8 +511,8 @@ END;
 --
 CREATE TABLE MI182_RRLEE.specializations (
     id NUMBER,
-    specialization VARCHAR2(50) NOT NULL,
-    PRIMARY KEY (id),
+    specialization VARCHAR(50) NOT NULL,
+    PRIMARY (id),
     UNIQUE (specialization)
 );
 
@@ -535,10 +536,9 @@ END;
 --
 CREATE TABLE MI182_RRLEE.styling_assistants (
     id NUMBER,
-    employee_id NUMBER NOT NULL,
     certification_quantity NUMBER NOT NULL,
     years_experience NUMBER(2) NOT NULL,
-    specialization NUMBER NOT NULL,
+    specialization NUMBER NOT NULL
     PRIMARY KEY (id),
     FOREIGN KEY (employee_id) REFERENCES MI182_RRLEE.employees (id),
     FOREIGN KEY (specialization) REFERENCES MI182_RRLEE.specializations (id)
@@ -564,7 +564,7 @@ END;
 --
 CREATE TABLE MI182_RRLEE.event_types (
     id NUMBER,
-    event_type VARCHAR2(50) NOT NULL,
+    event_type VARCHAR(50) NOT NULL,
     PRIMARY KEY (id),
     UNIQUE (event_type)
 );
@@ -609,7 +609,7 @@ CREATE TABLE MI182_RRLEE.events (
     FOREIGN KEY (city) REFERENCES MI182_RRLEE.cities (id),
     FOREIGN KEY (postal_code) REFERENCES MI182_RRLEE.postal_codes (id),
     FOREIGN KEY (province) REFERENCES MI182_RRLEE.provinces (id),
-    FOREIGN KEY (country) REFERENCES MI182_RRLEE.countries (id)
+    FOREIGN KEY (country) REFERENCES MI182_RRLEE.countries (id),
 );
 
 CREATE SEQUENCE MI182_RRLEE.events_sequence
@@ -632,8 +632,9 @@ END;
 --
 CREATE TABLE MI182_RRLEE.warehouse_types (
     id NUMBER,
-    warehouse_type VARCHAR2(50) NOT NULL,
-    PRIMARY KEY (id)
+    warehouse_type VARCHAR(50) NOT NULL,
+    PRIMARY KEY (id),
+    FOREIGN KEY (warehouse_type) REFERENCES warehouse_types (id)
 );
 
 CREATE SEQUENCE MI182_RRLEE.warehouse_types_sequence
@@ -672,7 +673,7 @@ CREATE TABLE MI182_RRLEE.warehouses (
     FOREIGN KEY (city) REFERENCES MI182_RRLEE.cities (id),
     FOREIGN KEY (postal_code) REFERENCES MI182_RRLEE.postal_codes (id),
     FOREIGN KEY (province) REFERENCES MI182_RRLEE.provinces (id),
-    FOREIGN KEY (country) REFERENCES MI182_RRLEE.countries (id)
+    FOREIGN KEY (country) REFERENCES MI182_RRLEE.countries (id),
 );
 
 CREATE SEQUENCE MI182_RRLEE.warehouses_sequence
