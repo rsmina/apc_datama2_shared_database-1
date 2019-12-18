@@ -14,8 +14,8 @@ BS Information Technology - MI 182
 <h1 id="view">View</h1>
     <table>
         <tr width="100%">
-            <th width="50%"><a href="screenshots/view-table.png" target="_blank">View Table</a></th>
-            <th width="50%"><a href="view.sql" target="_blank">Create View Query</a></th>
+            <th id="view-table" width="50%"><a href="screenshots/view-table.png" target="_blank">View Table</a></th>
+            <th id="create-view-query" width="50%"><a href="view.sql" target="_blank">Create View Query</a></th>
         </tr>
         <tr idth="100%">
             <td width="50%"><img src="screenshots/view-table.png" alt="View Table" /></td>
