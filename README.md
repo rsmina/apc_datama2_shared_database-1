@@ -37,13 +37,13 @@ ORDER BY rrlee.employees.id;
 </table>
 
 <h1 id="view-result-table">View Result Table</h1>
-<img src="screenshots/view-table.png" alt="View Result Table" />
+<img src="projects3_oracle_view/screenshots/view-table.png" alt="View Result Table" />
 
 <h1 id="employees">Employees</h1>
-<img src="screenshots/employees-table.png" alt="Employees Table" />
+<img src="projects3_oracle_view/screenshots/employees-table.png" alt="Employees Table" />
 
 <h1 id="employee_types">Employee Types</h1>
-<img src="screenshots/employee-types-table.png" alt="Employee Types Table" />
+<img src="projects3_oracle_view/screenshots/employee-types-table.png" alt="Employee Types Table" />
 
 <h1 id="er-diagram">Entity Relationship Diagram</h1>
-<img src="screenshots/er-diagram.png" alt="ER Diagram" />
+<img src="projects3_oracle_view/er-diagram.png" alt="ER Diagram" />
