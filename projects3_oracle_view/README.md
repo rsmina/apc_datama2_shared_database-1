@@ -74,7 +74,7 @@ BS Information Technology - MI 182
     </tr>
     <tr width="100%">
         <td>Postal Codes</td>
-        <td><img src="" alt=" query screenshots" /></td>
+        <td><img src="tables/postal-codes.png" alt=" query screenshots" /></td>
     </tr>
     <tr width="100%">
         <td>Presidents</td>
@@ -102,15 +102,15 @@ BS Information Technology - MI 182
     </tr>
     <tr width="100%">
         <td>Unit Numbers</td>
-        <td><img src="tables/unit-numbers" alt="Unit Numbers query screenshots" /></td>
+        <td><img src="tables/unit-numbers.png" alt="Unit Numbers query screenshots" /></td>
     </tr>
     <tr width="100%">
         <td>Warehouse Types</td>
-        <td><img src="tables/warehouse-types" alt="Warehouse types query screenshots" /></td>
+        <td><img src="tables/warehouse-types.png" alt="Warehouse types query screenshots" /></td>
     </tr>
     <tr width="100%">
         <td>Warehouses</td>
-        <td><img src="tables/warehouses" alt="Warehouses query screenshots" /></td>
+        <td><img src="tables/warehouses.png" alt="Warehouses query screenshots" /></td>
     </tr>
 </table>
 
