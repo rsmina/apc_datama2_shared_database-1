@@ -15,10 +15,10 @@ Database Management 2
 <table>
     <tr width="100%">
         <th width="50%">Screenshot</th>
-        <th width="50%"><a href="projects3_postgresql_view_2tables/screenshots/create-view-query.png"target="_blank">Query</a></th>
+        <th width="50%"><a href="projects3_postgresql_view_2tables/view.sql"target="_blank">Query</a></th>
     </tr>
     <tr idth="100%">
-        <td width="50%"><img src="screenshots/create-view-query.png" alt="Create View CLI Screenshot" /></td>
+        <td width="50%"><img src="projects3_postgresql_view_2tables/screenshots/create-view-query.png" alt="Create View CLI Screenshot" /></td>
         <td width="50%">
 
 ~~~sql
