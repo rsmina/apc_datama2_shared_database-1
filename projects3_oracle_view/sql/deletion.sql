@@ -93,3 +93,5 @@ DROP TABLE MI182_RRLEE.house_numbers;
 DROP TRIGGER MI182_RRLEE.unit_numbers_trigger;
 DROP SEQUENCE MI182_RRLEE.unit_numbers_sequence;
 DROP TABLE MI182_RRLEE.unit_numbers;
+
+DROP VIEW MI182_RRLEE.employees_types;
