@@ -1,3 +1,5 @@
+# PostgreSQL
+
 Ronn Angelo Lee 
 BS Information Technology  
 Database Management 2  
@@ -13,7 +15,7 @@ Database Management 2
 <table>
     <tr width="100%">
         <th width="50%">Screenshot</th>
-        <th width="50%"><a href="view.sql" target="_blank">Query</a></th>
+        <th width="50%"><a href="projects3_postgresql_view_2tables/screenshots/create-view-query.png"target="_blank">Query</a></th>
     </tr>
     <tr idth="100%">
         <td width="50%"><img src="screenshots/create-view-query.png" alt="Create View CLI Screenshot" /></td>
@@ -37,13 +39,13 @@ ORDER BY rrlee.employees.id;
 </table>
 
 <h1 id="view-result-table">View Result Table</h1>
-<img src="projects3_oracle_view/views/table-screenshot.png" alt="View Result Table" />
+<img src="projects3_postgresql_view_2tables/screenshots/view-table.png" alt="View Result Table" />
 
 <h1 id="employees">Employees</h1>
-<img src="projects3_oracle_view/views/employees-table.png" alt="Employees Table" />
+<img src="projects3_postgresql_view_2tables/screenshots/employees-table.png" alt="Employees Table" />
 
 <h1 id="employee_types">Employee Types</h1>
-<img src="projects3_oracle_view/views/employee-types-table.png" alt="Employee Types Table" />
+<img src="projects3_postgresql_view_2tables/screenshots/employee-types-table.png" alt="Employee Types Table" />
 
 <h1 id="er-diagram">Entity Relationship Diagram</h1>
-<img src="projects3_oracle_view/er-diagram.png" alt="ER Diagram" />
+<img src="projects3_postgresql_view_2tables/screenshots/er-diagram" alt="ER Diagram" />
