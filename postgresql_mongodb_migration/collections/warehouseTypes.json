@@ -1,0 +1,11 @@
+[
+    {
+        "type": "Public"
+    },
+    {
+        "type": "Private"
+    },
+    {
+        "type": "Rental"
+    }
+]

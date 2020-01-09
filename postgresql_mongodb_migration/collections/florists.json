@@ -1,0 +1,42 @@
+[
+    {
+        "employee_id": 11,
+        "flower_variety_qty": 30
+    },
+    {
+        "employee_id": 12,
+        "flower_variety_qty": 40
+    },
+    {
+        "employee_id": 13,
+        "flower_variety_qty": 45
+    },
+    {
+        "employee_id": 14,
+        "flower_variety_qty": 25
+    },
+    {
+        "employee_id": 15,
+        "flower_variety_qty": 35
+    },
+    {
+        "employee_id": 36,
+        "flower_variety_qty": 60
+    },
+    {
+        "employee_id": 37,
+        "flower_variety_qty": 40
+    },
+    {
+        "employee_id": 38,
+        "flower_variety_qty": 45
+    },
+    {
+        "employee_id": 39,
+        "flower_variety_qty": 60
+    },
+    {
+        "employee_id": 40,
+        "flower_variety_qty": 50
+    }
+]

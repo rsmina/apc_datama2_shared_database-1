@@ -1,0 +1,17 @@
+[
+    {
+        "type": "Wedding"
+    },
+    {
+        "type": "Birthday"
+    },
+    {
+        "type": "Christening"
+    },
+    {
+        "type": "Company"
+    },
+    {
+        "type": "Private"
+    }
+]
