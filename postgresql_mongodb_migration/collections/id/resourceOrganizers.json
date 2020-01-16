@@ -1,0 +1,62 @@
+[
+    {
+        "id": 1,
+        "employee_id": 21,
+        "years_experience": 5,
+        "description": "Self-motivated"
+    },
+    {
+        "id": 2,
+        "employee_id": 22,
+        "years_experience": 3,
+        "description": "Time management"
+    },
+    {
+        "id": 3,
+        "employee_id": 23,
+        "years_experience": 4,
+        "description": "Interpersonal skills"
+    },
+    {
+        "id": 4,
+        "employee_id": 24,
+        "years_experience": 2,
+        "description": "Networking"
+    },
+    {
+        "id": 5,
+        "employee_id": 25,
+        "years_experience": 5,
+        "description": "Focused"
+    },
+    {
+        "id": 6,
+        "employee_id": 46,
+        "years_experience": 6,
+        "description": "Networking"
+    },
+    {
+        "id": 7,
+        "employee_id": 47,
+        "years_experience": 9,
+        "description": "Time management"
+    },
+    {
+        "id": 8,
+        "employee_id": 48,
+        "years_experience": 2,
+        "description": "Interpersonal skills"
+    },
+    {
+        "id": 9,
+        "employee_id": 49,
+        "years_experience": 3,
+        "description": "Focused"
+    },
+    {
+        "id": 10,
+        "employee_id": 50,
+        "years_experience": 5,
+        "description": "Self-motivated"
+    }
+]

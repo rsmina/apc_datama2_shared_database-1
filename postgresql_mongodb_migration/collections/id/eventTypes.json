@@ -1,0 +1,22 @@
+[
+    {
+        "id": 1,
+        "type": "Wedding"
+    },
+    {
+        "id": 2,
+        "type": "Birthday"
+    },
+    {
+        "id": 3,
+        "type": "Christening"
+    },
+    {
+        "id": 4,
+        "type": "Company"
+    },
+    {
+        "id": 5,
+        "type": "Private"
+    }
+]

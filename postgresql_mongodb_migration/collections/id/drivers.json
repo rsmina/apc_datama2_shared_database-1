@@ -1,0 +1,72 @@
+[
+    {
+        "id": 1,
+        "employee_id": 1,
+        "license_num": "N27-11-025178",
+        "license_expiry": "2025-01-01",
+        "license_type_id": 1
+    },
+    {
+        "id": 2,
+        "employee_id": 2,
+        "license_num": "N21-12-025179",
+        "license_expiry": "2026-02-11",
+        "license_type_id": 2
+    },
+    {
+        "id": 3,
+        "employee_id": 3,
+        "license_num": "N23-13-025180",
+        "license_expiry": "2027-03-21",
+        "license_type_id": 2
+    },
+    {
+        "id": 4,
+        "employee_id": 4,
+        "license_num": "N25-14-025181",
+        "license_expiry": "2025-04-01",
+        "license_type_id": 1
+    },
+    {
+        "id": 5,
+        "employee_id": 5,
+        "license_num": "N28-15-025182",
+        "license_expiry": "2026-05-11",
+        "license_type_id": 2
+    },
+    {
+        "id": 6,
+        "employee_id": 26,
+        "license_num": "N20-16-025183",
+        "license_expiry": "2027-06-21",
+        "license_type_id": 1
+    },
+    {
+        "id": 7,
+        "employee_id": 27,
+        "license_num": "N22-17-025184",
+        "license_expiry": "2025-07-01",
+        "license_type_id": 2
+    },
+    {
+        "id": 8,
+        "employee_id": 28,
+        "license_num": "N24-18-025185",
+        "license_expiry": "2026-08-11",
+        "license_type_id": 2
+    },
+    {
+        "id": 9,
+        "employee_id": 29,
+        "license_num": "N25-19-025186",
+        "license_expiry": "2027-09-21",
+        "license_type_id": 1
+    },
+    {
+        "id": 10,
+        "employee_id": 30,
+        "license_num": "N26-19-025187",
+        "license_expiry": "2025-10-01",
+        "license_type_id": 2
+    }
+]

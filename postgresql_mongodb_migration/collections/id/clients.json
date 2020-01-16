@@ -1,0 +1,42 @@
+[
+    {
+        "id": 1,
+        "fname": "Jason",
+        "mname": "G",
+        "lname": "Todd",
+        "contact_number": "+639283747373",
+        "email_address": "jgtodd@gmail.com"
+    },
+    {
+        "id": 2,
+        "fname": "Angelica",
+        "mname": "Z",
+        "lname": "Daryl",
+        "contact_number": "+639283647389",
+        "email_address": "azdaryl@gmail.com"
+    },
+    {
+        "id": 3,
+        "fname": "Nadine",
+        "mname": "H",
+        "lname": "Paula",
+        "contact_number": "+639238564738",
+        "email_address": "nhpaula@gmail.com"
+    },
+    {
+        "id": 4,
+        "fname": "Jeric Paul",
+        "mname": "N",
+        "lname": "James",
+        "contact_number": "+639283647398",
+        "email_address": "jnjames@gmail.com"
+    },
+    {
+        "id": 5,
+        "fname": "Reynold",
+        "mname": "J",
+        "lname": "Jaime",
+        "contact_number": "+639378594851",
+        "email_address": "rjjaime@gmail.com"
+    }
+]

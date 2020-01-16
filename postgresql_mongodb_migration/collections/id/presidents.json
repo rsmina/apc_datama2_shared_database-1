@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "fname": "Jo",
+        "mname": "M",
+        "lname": "Claravall",
+        "address": "15 Lancewood Greenwods Village, Pasig",
+        "contact_number": "+639125658891",
+        "email_address": "jo.claravall@gmail.com"
+    },
+    {
+        "id": 2,
+        "fname": "David",
+        "mname": "C",
+        "lname": "De Guzman",
+        "address": "Bangkal, Taguig",
+        "contact_number": "+639665923590",
+        "email_address": "dcdeguzman@student.apc.edu.ph"
+    }
+]

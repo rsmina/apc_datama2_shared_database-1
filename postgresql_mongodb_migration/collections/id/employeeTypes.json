@@ -1,0 +1,22 @@
+[
+    {
+        "id": 1,
+        "type": "drivers"
+    },
+    {
+        "id": 2,
+        "type": "drapers"
+    },
+    {
+        "id": 3,
+        "type": "florists"
+    },
+    {
+        "id": 4,
+        "type": "styling_assistants"
+    },
+    {
+        "id": 5,
+        "type": "resource_organizers"
+    }
+]

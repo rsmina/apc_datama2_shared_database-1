@@ -1,0 +1,14 @@
+[
+    {
+        "id": 1,
+        "type": "Public"
+    },
+    {
+        "id": 2,
+        "type": "Private"
+    },
+    {
+        "id": 3,
+        "type": "Rental"
+    }
+]

@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "company_id": 1,
+        "warehouse_type_id": 1,
+        "location": "6 Bay Alley, Chengbei"
+    },
+    {
+        "id": 2,
+        "company_id": 2,
+        "warehouse_type_id": 3,
+        "location": "41133 Lukken Pass, Fayzabad"
+    },
+    {
+        "id": 3,
+        "company_id": 3,
+        "warehouse_type_id": 2,
+        "location": "92 Independence Alley, El Adelanto"
+    },
+    {
+        "id": 4,
+        "company_id": 4,
+        "warehouse_type_id": 2,
+        "location": "275 Shopko Junction, Fahmah"
+    },
+    {
+        "id": 5,
+        "company_id": 5,
+        "warehouse_type_id": 1,
+        "location": "9296 Becker Trail, Taguisa"
+    }
+]

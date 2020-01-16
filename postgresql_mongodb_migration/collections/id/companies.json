@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "name": "Jo Claravall",
+        "found_date": "1997-12-01",
+        "president_id": 1
+    },
+    {
+        "id": 2,
+        "name": "De Guzman Enterprise",
+        "found_date": "2012-11-04",
+        "president_id": 2
+    },
+    {
+        "id": 3,
+        "name": "Wedding Org",
+        "found_date": "2014-01-03",
+        "president_id": 1
+    },
+    {
+        "id": 4,
+        "name": "Organizers Incorporated",
+        "found_date": "2019-11-01",
+        "president_id": 2
+    },
+    {
+        "id": 5,
+        "name": "PhilWed",
+        "found_date": "2010-02-13",
+        "president_id": 1
+    }
+]

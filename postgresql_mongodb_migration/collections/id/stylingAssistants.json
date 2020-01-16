@@ -1,0 +1,102 @@
+[
+    {
+        "id": 1,
+        "employee_id": 16,
+        "certification_qty": 5,
+        "years_experience": 8,
+        "specialization": [
+            "Ikebana",
+            "English"
+        ]
+    },
+    {
+        "id": 2,
+        "employee_id": 17,
+        "certification_qty": 2,
+        "years_experience": 3,
+        "specialization": [
+            "English",
+            "Modern",
+            "Contemporary"
+        ]
+    },
+    {
+        "id": 3,
+        "employee_id": 18,
+        "certification_qty": 4,
+        "years_experience": 5,
+        "specialization": [
+            "Modern"
+        ]
+    },
+    {
+        "id": 4,
+        "employee_id": 19,
+        "certification_qty": 6,
+        "years_experience": 7,
+        "specialization": [
+            "Contemporary",
+            "Modern"
+        ]
+    },
+    {
+        "id": 5,
+        "employee_id": 20,
+        "certification_qty": 8,
+        "years_experience": 9,
+        "specialization": [
+            "Ikebana",
+            "English"
+        ]
+    },
+    {
+        "id": 6,
+        "employee_id": 41,
+        "certification_qty": 2,
+        "years_experience": 4,
+        "specialization": [
+            "Modern",
+            "Contemporary",
+            "Ikebana",
+            "English"
+        ]
+    },
+    {
+        "id": 7,
+        "employee_id": 42,
+        "certification_qty": 1,
+        "years_experience": 4,
+        "specialization": [
+            "Contemporary"
+        ]
+    },
+    {
+        "id": 8,
+        "employee_id": 43,
+        "certification_qty": 7,
+        "years_experience": 3,
+        "specialization": [
+            "English"
+        ]
+    },
+    {
+        "id": 9,
+        "employee_id": 44,
+        "certification_qty": 9,
+        "years_experience": 5,
+        "specialization": [
+            "Modern",
+            "English"
+        ]
+    },
+    {
+        "id": 10,
+        "employee_id": 45,
+        "certification_qty": 2,
+        "years_experience": 2,
+        "specialization": [
+            "Ikebana",
+            "Contemporary"
+        ]
+    }
+]

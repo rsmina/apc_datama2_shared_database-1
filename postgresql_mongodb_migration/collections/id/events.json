@@ -1,0 +1,47 @@
+[
+    {
+        "id": 1,
+        "company_id": 1,
+        "event_type_id": 1,
+        "client_id": 1,
+        "location": "493 Milwaukee Parkway, Nishor",
+        "startdate": "2019-10-20",
+        "enddate": "2019-10-20"
+    },
+    {
+        "id": 2,
+        "company_id": 2,
+        "event_type_id": 2,
+        "client_id": 2,
+        "location": "52 Dexter Place, Corticos",
+        "startdate": "2019-10-23",
+        "enddate": "2019-10-24"
+    },
+    {
+        "id": 3,
+        "company_id": 4,
+        "event_type_id": 5,
+        "client_id": 3,
+        "location": "51811 Drewry Court, Laixi",
+        "startdate": "2019-11-11",
+        "enddate": "2019-11-11"
+    },
+    {
+        "id": 4,
+        "company_id": 1,
+        "event_type_id": 3,
+        "client_id": 4,
+        "location": "7 Jackson Trail, Cervantes",
+        "startdate": "2019-12-23",
+        "enddate": "2019-12-23"
+    },
+    {
+        "id": 5,
+        "company_id": 3,
+        "event_type_id": 4,
+        "client_id": 5,
+        "location": "55 Harper Drive, Dongdong",
+        "startdate": "2019-12-30",
+        "enddate": "2019-12-30"
+    }
+]
